@@ -63,6 +63,10 @@ public class CompileNoteWindow : EditorWindow
                         EditorPrefs.SetString("currentBuildingAssetBundlePath", folderPath);
                         EditorUserBuildSettings.SwitchActiveBuildTarget(selectedBuildTargetGroup, activeBuildTarget);
                         AssetDatabase.DeleteAsset("Assets/_CustomNote.prefab");
+                        if (File.Exists(path))
+                        {
+                            File.Delete(path);
+                        }
                         File.Move(Application.temporaryCachePath + "/" + fileName, path);
                         AssetDatabase.Refresh();
                         EditorUtility.DisplayDialog("Exportation Successful!", "Exportation Successful!", "OK");
