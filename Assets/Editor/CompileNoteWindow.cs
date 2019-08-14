@@ -24,15 +24,13 @@ public class CompileNoteWindow : EditorWindow
     {
         var window = EditorWindow.GetWindow(typeof(CompileNoteWindow), false, "Note Exporter");
 
-        int ScrollSpace = (16+20);
+        int ScrollSpace = (16+20)+ (16+17+17+20+20);
         foreach (CustomNotes.NoteDescriptor note in notes)
         {
             if (note != null)
             {
-                if((note.transform.Find("NoteLeft") == null || note.transform.Find("NoteRight") == null || (note.DisableBaseNoteArrows == true && (note.transform.Find("NoteDotLeft") == null || note.transform.Find("NoteDotRight") == null))) == false)
-                {
-                    ScrollSpace += (16+17+17+20+20);
-                }
+
+                ScrollSpace += (16+17+17+20+20);
 
             }
         }
